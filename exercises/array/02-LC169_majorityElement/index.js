@@ -1,21 +1,40 @@
-function majorityElement(arr) {
+// 2N -> O(N)
+// function majorityElement(arr) {
+//   const counts = {};
+//   let max = 0;
+//   let value = null;
+
+//   for (let num of arr) {
+//     counts[num] = (counts[num] || 0) + 1;
+//   }
+
+//   for (let num in counts) {
+//     if (counts[num] > max) {
+//       max = counts[num];
+//       value = +num;
+//     }
+//   }
+
+//   return max > Math.trunc(arr.length / 2) ? value : "not found";
+// }
+
+// O(N);
+function majorityElement(nums) {
   const obj = {};
-  let max = 0;
 
-  // populate obj
-  for (const num of arr) {
-    if (obj[num]) {
-      ++obj[num];
-
-      if (obj[num] > max) {
-        max = num;
-      }
+  for (const element of nums) {
+    if (obj[element]) {
+      ++obj[element];
     } else {
-      obj[num] = 1;
+      obj[element] = 1;
+    }
+
+    if (obj[element] > nums.length / 2) {
+      return element;
     }
   }
 
-  return obj[max] > Math.trunc(arr.length / 2) ? max : "not found";
+  return "not found";
 }
 
 module.exports = majorityElement;

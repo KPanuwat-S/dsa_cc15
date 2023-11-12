@@ -8,3 +8,18 @@ test("returns true for Arrays with duplicate values", () => {
 test("returns false for Arrays with NO duplicate values", () => {
   expect(containsDuplicate([1, 2, 3, 4])).toEqual(false);
 });
+
+// function containsDuplicate(arr) {
+//   const obj = {};
+
+//   // populate arr into obj
+//   for (const num of arr) {
+//     if (obj[num]) {
+//       return true;
+//     } else {
+//       obj[num] = 1;
+//     }
+//   }
+
+//   return false;
+// }
