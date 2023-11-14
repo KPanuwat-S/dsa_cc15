@@ -4,10 +4,17 @@ function maxSubArray(nums) {
 
   for (let i = 1; i < nums.length; i++) {
     // Choose the maximum between the current element and the sum ending at the previous index plus the current element
-    currentSum = Math.max(nums[i], currentSum + nums[i]);
+    // currentSum = Math.max(nums[i], currentSum + nums[i]);
+    currentSum += nums[i];
+    if (nums[i] > currentSum) {
+      currentSum = nums[i];
+    }
 
     // Update the overall maximum sum
-    maxSum = Math.max(maxSum, currentSum);
+    // maxSum = Math.max(maxSum, currentSum);
+    if (currentSum > maxSum) {
+      maxSum = currentSum;
+    }
   }
 
   return maxSum;
@@ -15,8 +22,18 @@ function maxSubArray(nums) {
 
 module.exports = maxSubArray;
 
-// Cubic
+[1,2,3,-10,1]
 
+currentSum = 0
+
+
+
+[]
+
+
+
+
+// Cubic
 // function cubicMaxSubArraySum(arr) {
 //   const n = arr.length;
 //   let maxSum = -Infinity;
