@@ -29,32 +29,52 @@
 //   return profit;
 // }
 
+// function maxProfit(prices) {
+//   // body
+//   let buy = prices[0];
+//   let sell;
+//   let maxProfit = 0;
+
+//   for (let i = 1; i < prices.length; i++) {
+//     // return if length is invalid
+//     if (prices.length < 2) {
+//       return maxProfit;
+//     }
+
+//     // move sell pointer
+//     if (prices[i] > buy) {
+//       sell = prices[i];
+
+//       // compare profit
+//       if (sell - buy > maxProfit) {
+//         maxProfit = sell - buy;
+//       }
+//     }
+
+//     // move buy pointer
+//     if (prices[i] < buy && i < prices.length - 1) {
+//       buy = prices[i];
+//       sell = prices[i + 1];
+//     }
+//   }
+
+//   return maxProfit;
+// }
+
 function maxProfit(prices) {
   // body
-  let buy = prices[0];
-  let sell;
+
   let maxProfit = 0;
 
-  for (let i = 1; i < prices.length; i++) {
-    // return if length is invalid
-    if (prices.length < 2) {
-      return maxProfit;
-    }
-
-    // move sell pointer
-    if (prices[i] > buy) {
-      sell = prices[i];
-
-      // compare profit
-      if (sell - buy > maxProfit) {
-        maxProfit = sell - buy;
+  for (let i = 0; i < prices.length; i++) {
+    let todayPrice = prices[i];
+    for (let j = i + 1; j < prices.length; j++) {
+      let futurePrice = prices[j];
+      if (futurePrice <= todayPrice) {
+        continue;
+      } else {
+        maxProfit = Math.max(futurePrice - todayPrice, maxProfit);
       }
-    }
-
-    // move buy pointer
-    if (prices[i] < buy && i < prices.length - 1) {
-      buy = prices[i];
-      sell = prices[i + 1];
     }
   }
 
