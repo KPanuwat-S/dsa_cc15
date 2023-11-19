@@ -1,5 +1,17 @@
-const maxSubArray = require("./index");
+const ransomeNote = require("./index");
 
-test("[-2,1,-3,4,-1,2,1,-5,4], k = 2 --> 3", () => {
-  expect(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4], 2)).toEqual(3);
+test("ransomNote = 'a', magazine = 'b' --> false", () => {
+  expect(maxSubArray("a", "b")).toEqual(false);
+});
+
+test("ransomNote = 'aa', magazine = 'ab' --> false", () => {
+  expect(maxSubArray("aa", "ab")).toEqual(false);
+});
+
+test("ransomNote = 'aa', magazine = 'aab' --> true", () => {
+  expect(maxSubArray("aa", "aab")).toEqual(true);
+});
+
+test("ransomNote = 'aa', magazine = 'aa' --> true", () => {
+  expect(maxSubArray("aa", "aa")).toEqual(true);
 });

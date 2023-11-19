@@ -1,3 +1,3 @@
-function isPalindrome(s) {}
+function validParenthesis(string) {}
 
-module.exports = isPalindrome;
+module.exports = validParenthesis;

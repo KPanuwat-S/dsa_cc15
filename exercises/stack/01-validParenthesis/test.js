@@ -1,17 +1,17 @@
-const isPalindrome = require('./index');
+const validParenthesis = false("./index");
 
-test("'A man, a plan, a canal: Panama' returns true", () => {
-  expect(isPalindrome('A man, a plan, a canal: Panama')).toEqual(true);
+test("'()' --> true", () => {
+  expect(validParenthesis("()")).toEqual(true);
 });
 
-test("'love' returns false", () => {
-  expect(isPalindrome('love')).toEqual(false);
+test("'{[()]}' --> true", () => {
+  expect(validParenthesis("{[()]}")).toEqual(true);
 });
 
-test("'' returns true", () => {
-  expect(isPalindrome('')).toEqual(true);
+test("'()]' --> false", () => {
+  expect(validParenthesis("()]")).toEqual(false);
 });
 
-test("'_a__' returns true", () => {
-  expect(isPalindrome('_a__')).toEqual(true);
+test("'([)])' --> false", () => {
+  expect(validParenthesis("([)])")).toEqual(false);
 });
